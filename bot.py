@@ -2,20 +2,20 @@ import discord
 import youtube_dl
 import time
 from discord.ext import commands
-from PyDictionary import PyDictionary
 from bs4 import BeautifulSoup
 import random
 import requests
 import asyncio
 
 queue = {}
-dictionary=PyDictionary()
 looping = {}
 
 PUBLIC_KEY = "<MyPublicKey>"
 SECRET_KEY = "<MySecretKey>"
 auth = requests.auth.HTTPBasicAuth(PUBLIC_KEY, SECRET_KEY)
 loop = asyncio.get_event_loop()
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+whitelisted_channels = []
 
 data = {
     'grant_type' : 'password',
@@ -26,8 +26,6 @@ data = {
 token = "<MyToken>"
 client = commands.Bot(command_prefix = commands.when_mentioned_or('zx '))
 client.remove_command('help')
-days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-whitelisted_channels = []
 
 @client.event
 async def on_ready():

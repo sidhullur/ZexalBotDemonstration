@@ -70,6 +70,8 @@ async def current_time(ctx):
         day = days[time.localtime().tm_wday]
 
     hour = time.localtime().tm_hour-7
+    if hour < 0:
+        hour = 12 + hour
 
     if (hour > 12):
         hour -= 12

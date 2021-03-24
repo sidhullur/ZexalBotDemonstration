@@ -1,5 +1,4 @@
 import discord
-import youtube_dl
 import time
 from discord.ext import commands
 from PyDictionary import PyDictionary
@@ -179,7 +178,7 @@ async def delete(ctx, num):
         return
     try:
         num = int(num)
-    except TypeError:
+    except:
         await ctx.channel.send("The parameter should be an integer.")
         return
 
